@@ -129,9 +129,6 @@ const HomePage = () => {
 
   return (
     <div className="flex flex-col items-center content-center justify-center w-full align-middle gap-9" onClick={() => { handleHideFromFunction(); handleHideToFunction(); }}>
-      <div className="text-center text-[50px] lg:text-[100px] font-normal leading-none text-[#1FEA00]">
-        Anaisa
-      </div>
       <div
         className="flex min-h-[580px] h-full px-[12px] lg:px-[24px] py-6 flex-col justify-center items-center gap-[42px]
         self-stretch border-[3px] lg:border-[6px] border-[#1FEA00] bg-[#00000020] shadow-custom backdrop-blur-[1.05px]]"
