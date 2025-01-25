@@ -1,34 +1,55 @@
 import { useEffect, useState } from "react";
-import { useParams, useLocation } from "react-router-dom";
+import { useParams } from "react-router-dom";
+import service from '../../features/service';
 import PendingComponent from "../../Components/ProgressComponents/PendingDeposit";
 import ExchangingComponent from "../../Components/ProgressComponents/Exchanging";
 import SendingComponent from "../../Components/ProgressComponents/Sending";
-import SuccessComponent from "../../Components/ProgressComponents/Success";
+import FinishComponent from "../../Components/ProgressComponents/Finish";
 
 // Define a Set of valid statuses
-const validStatuses = new Set(["Pending", "Exchanging", "Sending", "Success"]);
+const validStatuses = new Set(["waiting", "exchanging", "sending", "finished"]);
 
 const ProgressPage = () => {
   const { depositID } = useParams();
-  const [currentStatus, setCurrentStatus] = useState("Pending");
-  const location = useLocation(); // Get the entire location object, including query parameters
+  const [currentStatus, setCurrentStatus] = useState("waiting");
+  const [transactionStatus, setTransactionStatus] = useState();
+  const [intervalID, setIntervalID] = useState(null);
 
-  // Parse the query string to extract 'status' or use 'awaiting deposit' if it's not present
+  
   useEffect(() => {
-    // Validate status before setting
-    const queryParams = new URLSearchParams(location.search);
-    const status = queryParams.get("status") || "Pending";
-    if (validStatuses.has(status)) {
-      setCurrentStatus(status); // Only set status if it's valid
+    if(depositID){
+      service.getTransactionStatusWithAxios(depositID).then((result) => {
+      if(!result.error)
+        setTransactionStatus(result);
+        setCurrentStatus(result.status)
+      }).catch(err => console.log(err))
     }
-  }, [location.search, setCurrentStatus]);
+    const intervalid = setInterval(() => {
+      if(depositID){
+        service.getTransactionStatusWithAxios(depositID).then((result) => {
+        if(!result.error)
+          setTransactionStatus(result);
+          setCurrentStatus(result.status)
+        }).catch(err => console.log(err))
+      }
+    }, 20000); // Runs every 20 second
+    setIntervalID(intervalid);
+    return () => clearInterval(intervalid); // Cleanup on unmount
+  }, []);
+
+  useEffect(() => {
+    if(currentStatus === "finished") {
+      clearInterval(intervalID);
+    }
+  }, [currentStatus, intervalID])
+
   return (
     <div>
-      {currentStatus === "Pending" && <PendingComponent depositID = {depositID}/>}
-      {currentStatus === "Exchanging" && <ExchangingComponent depositID = {depositID} />}
-      {currentStatus === "Sending" && <SendingComponent depositID = {depositID} />}
-      {currentStatus === "Success" && <SuccessComponent depositID = {depositID} />}
-      {/* You can now fetch or display information based on the depositID */}
+      {currentStatus === "waiting" && <PendingComponent depositID = {depositID} transactionStatus={transactionStatus} />}
+      {currentStatus === "exchanging" && <ExchangingComponent depositID = {depositID} transactionStatus={transactionStatus} />}
+      {currentStatus === "sending" && <SendingComponent depositID = {depositID} transactionStatus={transactionStatus}/>}
+      {currentStatus === "finished" && <FinishComponent depositID = {depositID} transactionStatus={transactionStatus}/>} 
+     {/* You can now fetch or display information based on the depositID */}
     </div>
   );
 };

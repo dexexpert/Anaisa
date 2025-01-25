@@ -1,6 +1,8 @@
 import React, { useEffect, useState } from "react";
 import "./App.css";
 import { BrowserRouter as Router, Route, Routes } from "react-router-dom";
+import { ToastContainer } from "react-toastify";
+import 'react-toastify/dist/ReactToastify.css';
 import HomePage from "./Pages/Home";
 import ProgressPage from "./Pages/Progress";
 import NotFoundPage from "./Pages/404";
@@ -48,8 +50,9 @@ const App = () => {
 
   return (
     <>
+      <ToastContainer />
       {" "}
-      <div className="background z-0">
+      <div className="z-0 background">
         <div className="squares-container">
           {rows.map((row) => (
             <div key={row.id} className="square-row">
