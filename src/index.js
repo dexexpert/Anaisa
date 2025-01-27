@@ -4,6 +4,7 @@ import "./index.css";
 import App from "./App";
 import reportWebVitals from "./reportWebVitals";
 import "@fontsource/pixelify-sans";
+import "@fontsource/press-start-2p";
 
 const root = ReactDOM.createRoot(document.getElementById("root"));
 root.render(

@@ -24,7 +24,7 @@ const Header = () => {
 
   return (
     <div
-      className="flex justify-between items-center self-stretch p-4"
+      className="flex items-center self-stretch justify-between p-4 mx-0 sm:mx-5"
       onClick={() => {
         if (isMobileMenuOpen === true) setIsMobileMenuOpen(false);
       }}
@@ -102,7 +102,7 @@ const Header = () => {
       </div>
 
       {/* Mobile Menu Toggle Button */}
-      <div className="lg:hidden flex items-center gap-2 cursor-pointer p-4">
+      <div className="flex items-center gap-2 p-4 cursor-pointer lg:hidden">
         <div onClick={toggleMobileMenu}>
           <svg
             xmlns="http://www.w3.org/2000/svg"
@@ -127,7 +127,7 @@ const Header = () => {
 
       {/* Mobile Menu (Visible when hamburger icon is clicked) */}
       {isMobileMenuOpen && (
-        <div className="lg:hidden absolute top-0 left-0 bg-black text-white p-6 w-full h-screen rounded-md">
+        <div className="absolute top-0 left-0 w-full h-screen p-6 text-white bg-black rounded-md lg:hidden">
           <div className="flex flex-col gap-4 justify-center items-center w-[100%] px-20 text-center">
             <a
               href="/#"

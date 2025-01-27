@@ -65,8 +65,8 @@ const HomePage = () => {
     service.getExchangeRangeWithAxios(data).then((result) => {
       if (!result.error) {
         setRangeData({
-          minAmount: result?.min,
-          maxAmount: result?.max,
+          minAmount: result?.min * 1.1,   // in create exchange bug
+          maxAmount: result?.max * 1.1,
         });
       }
     }).catch(err => console.log(err));
@@ -100,50 +100,29 @@ const HomePage = () => {
     
   }, [currency_from, currency_to]);
 
-
-  /** Fetch estimate when min amount is available */
   useEffect(() => {
-    if (rangeData.minAmount === 0) return;
-    getEstimate({ currency_from, currency_to, amount: amount_from });
-  }, [rangeData.minAmount]);
+      getEstimate({ currency_from, currency_to, amount: amount_from });
+  }, [currency_from, currency_to, amount_from]);
 
 
-  useEffect(() => {
-
-    let newAmount = amount_from;
-
-    if (parseFloat(newAmount) < parseFloat(rangeData.minAmount)) {
-      newAmount = parseFloat(rangeData.minAmount) * 1.1;
-    } else if (rangeData.maxAmount && parseFloat(newAmount) > parseFloat(rangeData.maxAmount)) {
-      newAmount = rangeData.maxAmount;
-    }
-
-    if (newAmount !== amount_from) {
-      setAmountFrom(newAmount);
-    } else if (parseFloat(newAmount) > 0) {
-      getEstimate({ currency_from, currency_to, amount: newAmount });
-    }
-  }, [currency_from, currency_to, amount_from, rangeData]);
-
-  
 
   return (
     <div className="flex flex-col items-center content-center justify-center w-full align-middle gap-9" onClick={() => { handleHideFromFunction(); handleHideToFunction(); }}>
       <div
         className="flex min-h-[580px] h-full px-[12px] lg:px-[24px] py-6 flex-col justify-center items-center gap-[42px]
-        self-stretch border-[3px] lg:border-[6px] border-[#1FEA00] bg-[#00000020] shadow-custom backdrop-blur-[1.05px]]"
+        self-stretch border-[3px] lg:border-[6px] border-[#1FEA00] bg-[#00000020] shadow-custom backdrop-blur-[1.05px]] mx-[10px] sm:mx-[40px] "
       >
-        <div className="flex h-full flex-col justify-between items-center self-stretch gap-[42px]">
+        <div className="flex h-full flex-col justify-between items-center self-stretch gap-[10px] sm:gap-[42px] ">
           <div className="text-[#1FEA00] text-center text-[22px] lg:text-[44px] font-normal leading-none flex-[1_0_0]">
             Exchange Crypto
           </div>
-          <div className="flex lg:flex-row flex-col justify-center items-center gap-[42px] self-stretch">
-            <div className="flex flex-col w-full">
-              <InputCard currencyData={currencyData} isFrom={true} curCurrency={currency_from} onValueChange={setCurrencyFrom} amount={amount_from} setAmount={setAmountFrom} ref={fromInputBar} />
+          <div className="flex lg:flex-row flex-col justify-center mt-3 sm:mt-0 gap-[10px] sm:gap-[42px] self-stretch">
+            <div className="flex flex-col w-full ">
+              <InputCard currencyData={currencyData} isFrom={true} curCurrency={currency_from} onValueChange={setCurrencyFrom} amount={amount_from} setAmount={setAmountFrom} ref={fromInputBar} rangeData={rangeData} />
               {(currency_from && currency_to) ? (<div className="text-[#B6B6B6] ">{amount_from} {currency_from.symbol}  = {amount_to}{currency_to.symbol} </div>) : <div className="text-[#B6B6B6] text-[14px]">1 SOL = 0.989 USDT</div>}
             </div>
 
-            <div className="cursor-pointer" onClick={() => {
+            <div className="flex cursor-pointer mt-[5px] sm:mt-[16px] h-fit justify-center" onClick={() => {
               setCurrencyFrom(currency_to);
               setCurrencyTo(currency_from);
             }}>
@@ -161,12 +140,12 @@ const HomePage = () => {
               </svg>
             </div>
             <div className="flex flex-col w-full ">
-              <InputCard currencyData={currencyData} isFrom={false} curCurrency={currency_to} onValueChange={setCurrencyTo} amount={amount_to} setAmount={setAmountTo} ref={toInputBar} />
-              {(currency_from && currency_to) ? (<div className="text-[#B6B6B6] ">{amount_from} {currency_from.symbol}  = {amount_to}{currency_to.symbol} </div>) : <div className="text-[#B6B6B6] text-[14px]">1 SOL = 0.989 USDT</div>}
+              <InputCard currencyData={currencyData} isFrom={false} curCurrency={currency_to} onValueChange={setCurrencyTo} amount={amount_to} setAmount={setAmountTo} ref={toInputBar} rangeData={rangeData} />
+              {(currency_from && currency_to) ? (<div className="text-[#B6B6B6]">{amount_from} {currency_from.symbol}  = {amount_to}{currency_to.symbol} </div>) : <div className="text-[#B6B6B6] text-[14px]">1 SOL = 0.989 USDT</div>}
 
             </div>
           </div>
-          <div className="flex flex-col p-3 justify-center items-center gap-2.5 flex-1 self-stretch border-4 border-[#515151] text-white">
+          <div className="flex flex-col p-4 justify-center items-center gap-4 flex-1 self-stretch border-4 border-[#515151] text-white">
             <div className="flex lg:flex-row flex-col lg:justify-center items-start gap-[10px] lg:gap-[30px] self-stretch">
               <div className="text-[20px]">Destination</div>
               <input
@@ -175,19 +154,19 @@ const HomePage = () => {
               />
             </div>
           </div>
-          <div className="flex justify-center flex-col items-start gap-[24px] self-stretch">
+          <div className="flex justify-center flex-col items-start gap-[12px] sm:gap-[24px] self-stretch">
             <div className="flex flex-col lg:flex-row justify-center gap-[12px] self-stretch max-w-[425px]">
-              <div className="flex p-3 justify-center items-center gap-2 flex-1 bg-[#1FEA00] text-[20px] text-black font-bold cursor-pointer">
+              <div className="flex p-3 justify-center items-center gap-2 flex-1 bg-[#1FEA00] text-[15px] sm:text-[20px] text-black font-bold cursor-pointer">
                 FIXED RATE (1.0%)
               </div>
-              <div className="flex p-3 justify-center items-center gap-2 flex-1 border-4 border-[#515151] text-white font-bold bg-none cursor-pointer">
+              <div className="flex p-3 justify-center items-center gap-2 flex-1 border-4 border-[#515151] text-[15px] sm:text-[20px] text-white font-bold bg-none cursor-pointer">
                 Float RATE (0.5%)
               </div>
             </div>
           </div>
           <div className="flex justify-center w-full ">
             <div
-              className="flex w-full lg:w-[337px] p-3 justify-center items-center gap-2 self-stretch bg-[#1FEA00] text-[24px] font-bold cursor-pointer"
+              className="flex w-full lg:w-[337px] p-3 justify-center items-center gap-2 self-stretch bg-[#1FEA00] text-[15px] sm:text-[24px] font-bold cursor-pointer"
               onClick={onSwapButtonClicked}
             >
               <div>Swap</div>
