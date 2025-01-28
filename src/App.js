@@ -9,7 +9,7 @@ import NotFoundPage from "./Pages/404";
 import Header from "./Components/Header";
 import Footer from "./Components/Footer";
 
-const NUM_ROWS = 30; // Number of rows
+const NUM_ROWS = 50; // Number of rows
 const SQUARES_PER_ROW = 40; // Maximum number of squares per row
 
 const App = () => {
@@ -49,10 +49,10 @@ const App = () => {
   }, []);
 
   return (
-    <>
+    <div className="relative">
       <ToastContainer />
       {" "}
-      <div className="z-0 background">
+      <div className="z-0 background overflow-hidden">
         <div className="squares-container">
           {rows.map((row) => (
             <div key={row.id} className="square-row">
@@ -66,7 +66,7 @@ const App = () => {
           ))}
         </div>
       </div>
-      <div className="flex px-[15px] py-[25px] lg:px-6 lg:py-12 gap-6 flex-col items-center backdrop-blur-sm z-100">
+      <div className="mainContainer flex px-[15px] py-[25px] lg:px-6 lg:py-12 gap-6 flex-col items-center backdrop-blur-sm z-100">
         <Header />
         <Router>
           <Routes>
@@ -81,7 +81,7 @@ const App = () => {
         </Router>
         <Footer />
       </div>
-    </>
+    </div>
   );
 };
 

@@ -1,21 +1,28 @@
 /* App.css */
 @font-face {
-  font-family: 'ArcadeClassic';
-  src: url('./assets/fonts/ARCADECLASSIC.TTF') format('truetype');
+  font-family: "ArcadeClassic";
+  src: url("./assets/fonts/ARCADECLASSIC.TTF") format("truetype");
   font-weight: normal;
   font-style: normal;
 }
 body {
   margin: 0;
   padding: 0;
-  font-family: 'ArcadeClassic', sans-serif;
+  font-family: "ArcadeClassic", sans-serif;
   background: #000;
   /* height: 100vh; */
   z-index: -1;
 }
 
+.mainContainer {
+  width: 100%;
+  height: 100%;
+}
+
+
 .background {
   position: absolute;
+  top: 0px;
   width: 100%;
   height: 100%;
   display: flex;
@@ -23,10 +30,18 @@ body {
   align-items: flex-end; /* Align at the bottom */
 }
 
+@media (max-height: 1024px) {
+  .background, .mainContainer{
+    width: 100vw; /* Adjust bottom on mobile */
+    height: 100vh;
+  }
+}
+
 .squares-container {
   position: absolute;
-  bottom: 0px; 
-  width: 100%;  /* Full width of the screen */
+  /* bottom: 0px;  */
+  top: 0px;
+  width: 100%; /* Full width of the screen */
   display: flex;
   flex-direction: column; /* Stack squares vertically */
   justify-content: flex-end;
@@ -35,23 +50,17 @@ body {
   z-index: 10;
 }
 
-@media (max-height: 1024px) {
-  .squares-container {
-    bottom: -200px;  /* Adjust bottom on mobile */
-  }
-}
-
 .square-row {
   display: flex;
   justify-content: space-between; /* Distribute squares evenly across the row */
-  width: 100%;  /* Make sure the row spans the entire width */
+  width: 100%; /* Make sure the row spans the entire width */
   gap: 5px;
 }
 
 .square {
   width: 20px;
   height: 20px;
-  background-color: #1FEA0044; /* Dark green color */
+  background-color: #1fea0044; /* Dark green color */
   opacity: 0;
   transition: opacity 0.3s ease-in-out;
 }
