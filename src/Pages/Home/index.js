@@ -140,12 +140,12 @@ const HomePage = () => {
                 rangeData={rangeData}
               />
               {currency_from && currency_to ? (
-                <div className="text-[#B6B6B6] ">
+                <div className="text-white ">
                   {amount_from} {currency_from.symbol} = {amount_to}
                   {currency_to.symbol}{" "}
                 </div>
               ) : (
-                <div className="text-[#B6B6B6] text-[14px]">
+                <div className="text-white text-[14px]">
                   1 SOL = 0.989 USDT
                 </div>
               )}
@@ -183,18 +183,18 @@ const HomePage = () => {
                 rangeData={rangeData}
               />
               {currency_from && currency_to ? (
-                <div className="text-[#B6B6B6]">
+                <div className="text-white">
                   {amount_from} {currency_from.symbol} = {amount_to}
                   {currency_to.symbol}{" "}
                 </div>
               ) : (
-                <div className="text-[#B6B6B6] text-[14px]">
+                <div className="text-white text-[14px]">
                   1 SOL = 0.989 USDT
                 </div>
               )}
             </div>
           </div>
-          <div className="flex flex-col p-4 justify-center items-center gap-4 flex-1 self-stretch border-4 border-[#515151] text-white">
+          <div className="flex flex-col p-4 justify-center items-center gap-4 flex-1 self-stretch border-4 border-white text-white">
             <div className="flex lg:flex-row flex-col lg:justify-center items-start gap-[10px] lg:gap-[30px] self-stretch">
               <div className="text-[20px]">Destination</div>
               <input
@@ -211,7 +211,7 @@ const HomePage = () => {
                 className={`flex p-3 justify-center items-center gap-2 flex-1 ${
                   isFixed
                     ? "bg-[#1FEA00] text-black border-[#1FEA00]"
-                    : "border-[#515151] text-white bg-none"
+                    : "border-white text-white bg-none"
                 }  border-4 text-[15px] sm:text-[20px] font-bold cursor-pointer`}
                 onClick={() => {
                   setIsFixed(true);
@@ -223,7 +223,7 @@ const HomePage = () => {
                 className={`flex p-3 justify-center items-center gap-2 flex-1  ${
                   !isFixed
                     ? "bg-[#1FEA00] text-black border-[#1FEA00]"
-                    : "border-[#515151] text-white bg-none"
+                    : "border-white text-white bg-none"
                 }  border-4 font-bold cursor-pointer text-[15px] sm:text-[20px]`}
                 onClick={() => {
                   setIsFixed(false);
