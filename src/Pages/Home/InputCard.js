@@ -371,7 +371,7 @@ const InputCard = forwardRef(({
           <div className="flex max-w-[250px] p-3 flex-col items-start gap-2 lg:flex-1 border-[3px] lg:border-4 border-b-0 lg:border-b-[3px] border-[#515151] cursor-pointer">
             <div className="flex items-center self-stretch justify-between" onClick={toggleDropdown}>
               <div className="flex items-center gap-[7px]">
-                <img className="max-h-6 max-w-6" src="https://content-api.changenow.io/uploads/sol_3b3f795997.svg" />
+                <img className="max-h-6 max-w-6" src="https://content-api.changenow.io/uploads/sol_3b3f795997.svg" alt=""/>
                 <div className="uppercase">sol</div>
               </div>
               <svg xmlns="http://www.w3.org/2000/svg" width="13" height="13" viewBox="0 0 13 13" fill="none">

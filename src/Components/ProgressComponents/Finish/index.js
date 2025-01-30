@@ -3,7 +3,6 @@ import { useNavigate } from "react-router-dom";
 import { toast } from "react-toastify";
 
 const FinishComponent = ({ depositID, transactionStatus }) => {
-
   const [currency_from, setCurrencyFrom] = useState();
   const [currency_to, setCurrencyTo] = useState();
   const navigate = useNavigate();
@@ -14,7 +13,7 @@ const FinishComponent = ({ depositID, transactionStatus }) => {
       setCurrencyFrom(transactionStatus.currencies[currencyKeys[0]]);
       setCurrencyTo(transactionStatus.currencies[currencyKeys[1]]);
     }
-  }, [transactionStatus])
+  }, [transactionStatus]);
 
   return (
     <div className="flex flex-col items-center content-center justify-center w-full gap-9">
@@ -39,9 +38,20 @@ const FinishComponent = ({ depositID, transactionStatus }) => {
               <div className="flex flex-col justify-center items-start self-stretch lg:self-auto lg:flex-[1_0_0]">
                 <div className="flex items-center self-stretch justify-center">
                   <div className="flex w-[36px] h-[36px] p-[2px] justify-center items-center rounded-[34px]">
-                    <img className=" max-h-6 max-w-6" src={currency_from ? currency_from.image : "https://content-api.changenow.io/uploads/sol_3b3f795997.svg"} />
+                    <img
+                      className=" max-h-6 max-w-6"
+                      src={
+                        currency_from
+                          ? currency_from.image
+                          : "https://content-api.changenow.io/uploads/sol_3b3f795997.svg"
+                      }
+                      alt=""
+                    />
                   </div>
-                  <div className="font-bold uppercase">{transactionStatus ? transactionStatus.amount_from : ""} {currency_from ? currency_from.symbol : ""} </div>
+                  <div className="font-bold uppercase">
+                    {transactionStatus ? transactionStatus.amount_from : ""}{" "}
+                    {currency_from ? currency_from.symbol : ""}{" "}
+                  </div>
                 </div>
                 <div className="flex justify-center items-center gap-[12px] self-stretch">
                   <div className="text-[18px]">Network:</div>
@@ -67,9 +77,21 @@ const FinishComponent = ({ depositID, transactionStatus }) => {
               <div className="flex flex-col justify-center items-start self-stretch lg:self-auto lg:flex-[1_0_0]">
                 <div className="flex items-center self-stretch justify-center">
                   <div className="flex w-[36px] h-[36px] p-[2px] justify-center items-center rounded-[34px]">
-                    <img className=" max-h-6 max-w-6" src={currency_to ? currency_to.image : "https://content-api.changenow.io/uploads/sol_3b3f795997.svg"} />
+                    <img
+                      className=" max-h-6 max-w-6"
+                      src={
+                        currency_to
+                          ? currency_to.image
+                          : "https://content-api.changenow.io/uploads/sol_3b3f795997.svg"
+                      }
+                      alt=""
+                    />
                   </div>
-                  <div className="font-bold uppercase "> {transactionStatus ? transactionStatus.amount_to : ""} {currency_to ? currency_to.symbol : ""} </div>
+                  <div className="font-bold uppercase ">
+                    {" "}
+                    {transactionStatus ? transactionStatus.amount_to : ""}{" "}
+                    {currency_to ? currency_to.symbol : ""}{" "}
+                  </div>
                 </div>
                 <div className="flex justify-center items-center gap-[12px] self-stretch">
                   <div className="text-[18px]">Network:</div>
@@ -88,9 +110,23 @@ const FinishComponent = ({ depositID, transactionStatus }) => {
                   <div className="flex items-center gap-[24px] flex-[1_0_0]">
                     <div className="flex items-center justify-center gap-[12px]">
                       <div className="flex p-[2px] justify-center items-center">
-                        <img className=" max-h-6 max-w-6" src={currency_to ? currency_to.image : "https://content-api.changenow.io/uploads/sol_3b3f795997.svg"} />
+                        <img
+                          className=" max-h-6 max-w-6"
+                          src={
+                            currency_to
+                              ? currency_to.image
+                              : "https://content-api.changenow.io/uploads/sol_3b3f795997.svg"
+                          }
+                          alt=""
+                        />
                       </div>
-                      <div className="font-bold uppercase "> {transactionStatus ? transactionStatus.amount_to : ""} {currency_to ? currency_to.symbol : ""} </div>
+                      <div className="font-bold uppercase ">
+                        {" "}
+                        {transactionStatus
+                          ? transactionStatus.amount_to
+                          : ""}{" "}
+                        {currency_to ? currency_to.symbol : ""}{" "}
+                      </div>
                     </div>
                     <div className="flex justify-end items-center gap-[12px]">
                       <div className="">Network:</div>
@@ -106,14 +142,18 @@ const FinishComponent = ({ depositID, transactionStatus }) => {
                   <div className="max-w-[241px] flex-[1_0_0]">
                     Recipient Address:
                   </div>
-                  <div className="flex items-center gap-[24px] flex-[1_0_0] cursor-pointer" onClick={(e) => {
-                    e.stopPropagation();
-                    navigator.clipboard.writeText(transactionStatus.address_to)
-                      .then(() => {
-                        toast.success("copied");
-                        // Optionally, you can provide user feedback here
-                      })
-                  }}>
+                  <div
+                    className="flex items-center gap-[24px] flex-[1_0_0] cursor-pointer"
+                    onClick={(e) => {
+                      e.stopPropagation();
+                      navigator.clipboard
+                        .writeText(transactionStatus.address_to)
+                        .then(() => {
+                          toast.success("copied");
+                          // Optionally, you can provide user feedback here
+                        });
+                    }}
+                  >
                     <div className="flex break-all px-[1px] text-[14px] py-0 justify-center items-start gap-[18px]">
                       <div>
                         {transactionStatus ? transactionStatus.address_to : ""}
@@ -123,15 +163,21 @@ const FinishComponent = ({ depositID, transactionStatus }) => {
                 </div>
                 <div className="flex max-w-[650px] flex-col justify-center items-center gap-[10px] self-stretch">
                   <div className="flex lg:flex-row flex-col justify-center items-start lg:items-center self-stretch gap-[10px]">
-                    <div className="max-w-[241px] flex-[1_0_0]">Pay Out Hash:</div>
-                    <div className="flex items-center gap-[24px] flex-[1_0_0] cursor-pointer" onClick={(e) => {
-                      e.stopPropagation();
-                      navigator.clipboard.writeText(transactionStatus.tx_to)
-                        .then(() => {
-                          toast.success("copied");
-                          // Optionally, you can provide user feedback here
-                        })
-                    }}>
+                    <div className="max-w-[241px] flex-[1_0_0]">
+                      Pay Out Hash:
+                    </div>
+                    <div
+                      className="flex items-center gap-[24px] flex-[1_0_0] cursor-pointer"
+                      onClick={(e) => {
+                        e.stopPropagation();
+                        navigator.clipboard
+                          .writeText(transactionStatus.tx_to)
+                          .then(() => {
+                            toast.success("copied");
+                            // Optionally, you can provide user feedback here
+                          });
+                      }}
+                    >
                       <div className="flex break-all px-[1px] text-[14px] py-0 justify-center items-start gap-[18px]">
                         <div>
                           {transactionStatus ? transactionStatus.tx_to : ""}
@@ -142,14 +188,16 @@ const FinishComponent = ({ depositID, transactionStatus }) => {
                 </div>
                 <div className="flex lg:flex-row flex-col justify-center items-start lg:items-center gap-[10px] self-stretch">
                   <div className="max-w-[241px] flex-[1_0_0]">Exchange ID:</div>
-                  <div className="flex items-center gap-[12px] flex-[1_0_0] text-[14px] cursor-pointer" onClick={(e) => {
-                    e.stopPropagation();
-                    navigator.clipboard.writeText(depositID)
-                      .then(() => {
+                  <div
+                    className="flex items-center gap-[12px] flex-[1_0_0] text-[14px] cursor-pointer"
+                    onClick={(e) => {
+                      e.stopPropagation();
+                      navigator.clipboard.writeText(depositID).then(() => {
                         toast.success("copied");
                         // Optionally, you can provide user feedback here
-                      })
-                  }}>
+                      });
+                    }}
+                  >
                     {depositID}
                   </div>
                 </div>
@@ -164,9 +212,20 @@ const FinishComponent = ({ depositID, transactionStatus }) => {
                   <div className="flex items-center gap-[24px] flex-[1_0_0]">
                     <div className="flex items-center justify-center gap-[12px]">
                       <div className="flex p-[2px] justify-center items-center">
-                        <img className=" max-h-6 max-w-6" src={currency_from ? currency_from.image : "https://content-api.changenow.io/uploads/sol_3b3f795997.svg"} />
+                        <img
+                          className=" max-h-6 max-w-6"
+                          src={
+                            currency_from
+                              ? currency_from.image
+                              : "https://content-api.changenow.io/uploads/sol_3b3f795997.svg"
+                          }
+                          alt=""
+                        />
                       </div>
-                      <div className="font-bold uppercase">{transactionStatus ? transactionStatus.amount_from : ""} {currency_from ? currency_from.symbol : ""} </div>
+                      <div className="font-bold uppercase">
+                        {transactionStatus ? transactionStatus.amount_from : ""}{" "}
+                        {currency_from ? currency_from.symbol : ""}{" "}
+                      </div>
                     </div>
                     <div className="flex justify-end items-center gap-[12px]">
                       <div className="">Network:</div>
@@ -182,17 +241,23 @@ const FinishComponent = ({ depositID, transactionStatus }) => {
                   <div className="max-w-[241px] flex-[1_0_0]">
                     Deposit Address:
                   </div>
-                  <div className="flex items-center gap-[24px] flex-[1_0_0] cursor-pointer" onClick={(e) => {
-                    e.stopPropagation();
-                    navigator.clipboard.writeText(transactionStatus.address_from)
-                      .then(() => {
-                        toast.success("copied");
-                        // Optionally, you can provide user feedback here
-                      })
-                  }}>
+                  <div
+                    className="flex items-center gap-[24px] flex-[1_0_0] cursor-pointer"
+                    onClick={(e) => {
+                      e.stopPropagation();
+                      navigator.clipboard
+                        .writeText(transactionStatus.address_from)
+                        .then(() => {
+                          toast.success("copied");
+                          // Optionally, you can provide user feedback here
+                        });
+                    }}
+                  >
                     <div className="flex break-all px-[1px] text-[14px] py-0 justify-center items-start gap-[18px]">
                       <div>
-                        {transactionStatus ? transactionStatus.address_from : ""}
+                        {transactionStatus
+                          ? transactionStatus.address_from
+                          : ""}
                       </div>
                     </div>
                   </div>
@@ -201,14 +266,18 @@ const FinishComponent = ({ depositID, transactionStatus }) => {
               <div className="flex max-w-[650px] flex-col justify-center items-center gap-[10px] self-stretch">
                 <div className="flex lg:flex-row flex-col justify-center items-start lg:items-center self-stretch gap-[10px]">
                   <div className="max-w-[241px] flex-[1_0_0]">Pay In Hash:</div>
-                  <div className="flex items-center gap-[24px] flex-[1_0_0] cursor-pointer" onClick={(e) => {
-                    e.stopPropagation();
-                    navigator.clipboard.writeText(transactionStatus.tx_from)
-                      .then(() => {
-                        toast.success("copied");
-                        // Optionally, you can provide user feedback here
-                      })
-                  }}>
+                  <div
+                    className="flex items-center gap-[24px] flex-[1_0_0] cursor-pointer"
+                    onClick={(e) => {
+                      e.stopPropagation();
+                      navigator.clipboard
+                        .writeText(transactionStatus.tx_from)
+                        .then(() => {
+                          toast.success("copied");
+                          // Optionally, you can provide user feedback here
+                        });
+                    }}
+                  >
                     <div className="flex break-all px-[1px] text-[14px] py-0 justify-center items-start gap-[18px]">
                       <div>
                         {transactionStatus ? transactionStatus.tx_from : ""}

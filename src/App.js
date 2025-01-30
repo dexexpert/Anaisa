@@ -2,7 +2,7 @@ import React, { useEffect, useState } from "react";
 import "./App.css";
 import { BrowserRouter as Router, Route, Routes } from "react-router-dom";
 import { ToastContainer } from "react-toastify";
-import 'react-toastify/dist/ReactToastify.css';
+import "react-toastify/dist/ReactToastify.css";
 import HomePage from "./Pages/Home";
 import ProgressPage from "./Pages/Progress";
 import NotFoundPage from "./Pages/404";
@@ -50,10 +50,12 @@ const App = () => {
 
   return (
     <div className="relative">
-      <ToastContainer />
-      {" "}
-      <div className="z-0 background overflow-hidden">
-        <div className="squares-container">
+      <ToastContainer />{" "}
+      <div
+        className="z-0 background overflow-hidden bg-no-repeat bg-fixed h-screen"
+        style={{ backgroundImage: "url('/assets/img/5.jpg')", backgroundSize: '100% 100%'}}
+      >
+        {/* <div className="squares-container">
           {rows.map((row) => (
             <div key={row.id} className="square-row">
               {row.squares.map((square) => (
@@ -64,7 +66,7 @@ const App = () => {
               ))}
             </div>
           ))}
-        </div>
+        </div> */}
       </div>
       <div className="mainContainer flex px-[15px] py-[25px] lg:px-6 lg:py-12 gap-6 flex-col items-center backdrop-blur-sm z-100">
         <Header />

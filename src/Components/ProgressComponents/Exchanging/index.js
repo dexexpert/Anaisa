@@ -103,7 +103,7 @@ const ExchangingComponent = ({ depositID, transactionStatus }) => {
                   <div className="flex items-center gap-[24px] flex-[1_0_0]">
                     <div className="flex items-center justify-center gap-[12px]">
                       <div className="flex p-[2px] justify-center items-center">
-                        <img className=" max-h-6 max-w-6" src={currency_to ? currency_to.image : "https://content-api.changenow.io/uploads/sol_3b3f795997.svg"} />
+                        <img className=" max-h-6 max-w-6" src={currency_to ? currency_to.image : "https://content-api.changenow.io/uploads/sol_3b3f795997.svg"} alt=""/>
                       </div>
                       <div className="font-bold uppercase "> {transactionStatus ? transactionStatus.amount_to : ""} {currency_to ? currency_to.symbol : ""} </div>
                     </div>
@@ -162,7 +162,7 @@ const ExchangingComponent = ({ depositID, transactionStatus }) => {
                   <div className="flex items-center gap-[24px] flex-[1_0_0]">
                     <div className="flex items-center justify-center gap-[12px]">
                       <div className="flex p-[2px] justify-center items-center">
-                        <img className=" max-h-6 max-w-6" src={currency_from ? currency_from.image : "https://content-api.changenow.io/uploads/sol_3b3f795997.svg"} />
+                        <img className=" max-h-6 max-w-6" src={currency_from ? currency_from.image : "https://content-api.changenow.io/uploads/sol_3b3f795997.svg"} alt=""/>
                       </div>
                       <div className="font-bold uppercase">{transactionStatus ? transactionStatus.amount_from : ""} {currency_from ? currency_from.symbol : ""} </div>
                     </div>
