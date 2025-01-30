@@ -11,6 +11,7 @@ const getEstimateWithAxios = async (data) => {
         .concat(data.currency_from.symbol, "&currency_to=")
         .concat(data.currency_to.symbol, "&amount=")
         .concat(data.amount)
+        .concat("&isFixed=", data.isFixed)
       //  .concat(100)
     );
 
@@ -31,6 +32,7 @@ const getExchangeRangeWithAxios = async (data) => {
         .concat(false, "&currency_from=")
         .concat(data.currency_from.symbol, "&currency_to=")
         .concat(data.currency_to.symbol)
+        .concat("&isFixed=", data.isFixed)
     );
 
     return await response.json();
@@ -59,14 +61,14 @@ const postExchangeTransactionWithAxios = async (data) => {
         method: "POST",
         headers: { "Content-Type": "application/json" },
         body: JSON.stringify({
-          fixed: false,
+          isFixed: data.isFixed,
           currency_from: data.currency_from.symbol,
           currency_to: data.currency_to.symbol,
           amount: data.amount,
           address_to: data.address_to,
           extra_id_to: "",
           user_refund_address: "",
-          user_refund_extra_id: ""
+          user_refund_extra_id: "",
         }),
       }
     );

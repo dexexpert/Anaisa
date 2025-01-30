@@ -39,9 +39,14 @@ const Header = () => {
 
       {/* Desktop Menu (Whitepaper, FAQ, Telegram, X icons) */}
       <div className="hidden lg:flex max-w-[600px] min-h-[70px] p-3 justify-end items-center gap-6 flex-1">
-        <div className="text-white text-[20px] font-extrabold leading-normal cursor-pointer">
+        <a
+          className="text-white text-[20px] font-extrabold leading-normal cursor-pointer"
+          href="https://anaisa-swap.gitbook.io/anaisa-swap"
+          target="_blank"
+          rel="noreferrer"
+        >
           WhitePaper
-        </div>
+        </a>
         <div className="text-white text-[20px] font-extrabold leading-normal cursor-pointer">
           FAQ
         </div>
@@ -62,7 +67,7 @@ const Header = () => {
             />
           </svg>
         </a>
-        <a href="/#">
+        <a href="https://x.com/AnaisaSwap" target="_blank" rel="noreferrer">
           <svg
             xmlns="http://www.w3.org/2000/svg"
             width="46"
@@ -130,7 +135,9 @@ const Header = () => {
         <div className="absolute top-0 left-0 w-full h-screen p-6 text-white bg-black rounded-md lg:hidden">
           <div className="flex flex-col gap-4 justify-center items-center w-[100%] px-20 text-center">
             <a
-              href="/#"
+              href="https://anaisa-swap.gitbook.io/anaisa-swap"
+              target="_blank"
+              rel="noreferrer"
               className="text-[20px] font-extrabold leading-normal pb-[6px] border-b border-b-[#515151] w-[100%]"
             >
               WhitePaper
@@ -160,7 +167,11 @@ const Header = () => {
                   />
                 </svg>
               </a>
-              <a href="/#">
+              <a
+                href="https://x.com/AnaisaSwap"
+                target="_blank"
+                rel="noreferrer"
+              >
                 <svg
                   xmlns="http://www.w3.org/2000/svg"
                   width="40"
