@@ -30,13 +30,6 @@ body {
   align-items: flex-end; /* Align at the bottom */
 }
 
-@media (max-height: 1024px) {
-  .background, .mainContainer{
-    width: 100vw; /* Adjust bottom on mobile */
-    height: 100vh;
-  }
-}
-
 .squares-container {
   position: absolute;
   /* bottom: 0px;  */

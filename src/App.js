@@ -51,9 +51,10 @@ const App = () => {
   return (
     <div className="relative">
       <ToastContainer />{" "}
-      <div
-        className="z-0 background overflow-hidden bg-no-repeat bg-fixed h-screen"
-        style={{ backgroundImage: "url('/assets/img/5.jpg')", backgroundSize: '100% 100%'}}
+      <img
+        className="z-0 background"
+        src="/assets/img/5.jpg"
+        alt=""
       >
         {/* <div className="squares-container">
           {rows.map((row) => (
@@ -67,8 +68,8 @@ const App = () => {
             </div>
           ))}
         </div> */}
-      </div>
-      <div className="mainContainer flex px-[15px] py-[25px] lg:px-6 lg:py-12 gap-6 flex-col items-center backdrop-blur-sm z-100">
+      </img>
+      <div className="w-[100%] h-[100%] xl:h-[100vh] lg:w-[100vw] flex px-[15px] py-[25px] lg:px-6 lg:py-12 gap-6 flex-col items-center backdrop-blur-sm z-100">
         <Header />
         <Router>
           <Routes>
