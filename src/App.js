@@ -43,7 +43,7 @@ const App = () => {
           })),
         }))
       );
-    }, 500); // Adjust blinking speed
+    }, 1000); // Adjust blinking speed
 
     return () => clearInterval(interval); // Clean up interval on component unmount
   }, []);
