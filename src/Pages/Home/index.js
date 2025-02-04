@@ -46,7 +46,7 @@ const HomePage = () => {
         currency_to: currency_to,
         amount: amount_from,
         address_to: address_to,
-        isFixed
+        isFixed,
         // address_to: '4NfxuRXwhk2ugNNkQJ4XDYxQc7QyNoPw3LkjsUGMKQ1B', // for test
       })
       .then((result) => {
@@ -104,7 +104,8 @@ const HomePage = () => {
   }, [currencyData]);
 
   useEffect(() => {
-    if (currency_from && currency_to) range({ currency_from, currency_to, isFixed });
+    if (currency_from && currency_to)
+      range({ currency_from, currency_to, isFixed });
   }, [currency_from, currency_to, isFixed]);
 
   useEffect(() => {
@@ -113,7 +114,7 @@ const HomePage = () => {
 
   return (
     <div
-      className="flex flex-col items-center content-center justify-center w-full align-middle gap-9"
+      className="flex xl:h-[70vh] flex-col items-center content-center justify-center w-full align-middle gap-9"
       onClick={() => {
         handleHideFromFunction();
         handleHideToFunction();
@@ -145,9 +146,7 @@ const HomePage = () => {
                   {currency_to.symbol}{" "}
                 </div>
               ) : (
-                <div className="text-white text-[14px]">
-                  1 SOL = 0.989 USDT
-                </div>
+                <div className="text-white text-[14px]">1 SOL = 0.989 USDT</div>
               )}
             </div>
 
@@ -188,9 +187,7 @@ const HomePage = () => {
                   {currency_to.symbol}{" "}
                 </div>
               ) : (
-                <div className="text-white text-[14px]">
-                  1 SOL = 0.989 USDT
-                </div>
+                <div className="text-white text-[14px]">1 SOL = 0.989 USDT</div>
               )}
             </div>
           </div>
@@ -235,7 +232,8 @@ const HomePage = () => {
           </div>
           <div className="flex justify-center w-full ">
             <div
-              className="flex w-full lg:w-[337px] p-3 justify-center items-center gap-2 self-stretch bg-[#1FEA00] text-[15px] sm:text-[24px] font-bold cursor-pointer"
+              className="flex w-full lg:w-[337px] p-3 justify-center items-center gap-2 self-stretch bg-[#1FEA00] text-[15px] sm:text-[24px] font-bold cursor-pointer 
+    hover:bg-[#16D500] hover:scale-105 active:scale-95 transition-all duration-200"
               onClick={onSwapButtonClicked}
             >
               <div>Swap</div>

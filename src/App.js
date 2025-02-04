@@ -69,7 +69,7 @@ const App = () => {
           ))}
         </div> */}
       </img>
-      <div className="w-[100%] h-[100%] xl:h-[100vh] lg:w-[100vw] flex px-[15px] py-[25px] lg:px-6 lg:py-12 gap-6 flex-col items-center backdrop-blur-sm z-100">
+      <div className="w-[100%] h-[100%] flex px-[15px] py-[25px] lg:px-6 lg:py-12 gap-6 flex-col items-center backdrop-blur-sm z-100">
         <Header />
         <Router>
           <Routes>

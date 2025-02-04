@@ -27,7 +27,7 @@ const FinishComponent = ({ depositID, transactionStatus }) => {
       </div>
       <div
         className="flex min-h-[580px] h-full px-[12px] lg:px-[24px] py-6 lg:py-[36px] flex-col justify-center items-center gap-[42px]
-        self-stretch border-[3px] lg:border-[6px] border-[#1FEA00] bg-[#00000020] shadow-custom backdrop-blur-[1.05px]] w-[800px]"
+        self-stretch border-[3px] lg:border-[6px] border-[#1FEA00] bg-[#00000020] shadow-custom backdrop-blur-[1.05px]] lg:w-[800px] w-[100vw]"
       >
         <div className="flex max-w-[760px] h-full flex-col justify-between items-center self-stretch gap-[24px] text-white px-12">
           <div className="self-start text-[#1FEA00] text-[20px] lg:text-[25px] font-semibold">
@@ -107,7 +107,7 @@ const FinishComponent = ({ depositID, transactionStatus }) => {
               <div className="flex max-w-[650px] flex-col justify-center items-center gap-[10px] self-stretch">
                 <div className="flex lg:flex-row flex-col justify-center items-start lg:items-center gap-[10px] self-stretch">
                   <div className="max-w-[241px] flex-[1_0_0]">You Get:</div>
-                  <div className="flex items-center gap-[24px] flex-[1_0_0]">
+                  <div className="flex items-center gap-[24px] flex-[1_0_0] flex-wrap">
                     <div className="flex items-center justify-center gap-[12px]">
                       <div className="flex p-[2px] justify-center items-center">
                         <img
@@ -209,7 +209,7 @@ const FinishComponent = ({ depositID, transactionStatus }) => {
               <div className="flex max-w-[650px] flex-col justify-center items-center gap-[10px] self-stretch">
                 <div className="flex lg:flex-row flex-col justify-center items-start lg:items-center gap-[10px] self-stretch">
                   <div className="max-w-[241px] flex-[1_0_0]">You Sent:</div>
-                  <div className="flex items-center gap-[24px] flex-[1_0_0]">
+                  <div className="flex items-center gap-[24px] flex-[1_0_0] flex-wrap">
                     <div className="flex items-center justify-center gap-[12px]">
                       <div className="flex p-[2px] justify-center items-center">
                         <img

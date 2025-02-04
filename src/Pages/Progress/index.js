@@ -44,11 +44,11 @@ const ProgressPage = () => {
   }, [currentStatus, intervalID])
 
   return (
-    <div>
-      {currentStatus === "waiting" && <PendingComponent depositID = {depositID} transactionStatus={transactionStatus} />}
-      {currentStatus === "exchanging" && <ExchangingComponent depositID = {depositID} transactionStatus={transactionStatus} />}
-      {currentStatus === "sending" && <SendingComponent depositID = {depositID} transactionStatus={transactionStatus}/>}
-      {currentStatus === "finished" && <FinishComponent depositID = {depositID} transactionStatus={transactionStatus}/>} 
+    <div className="">
+      {currentStatus.toLocaleLowerCase() === "waiting" && <PendingComponent depositID = {depositID} transactionStatus={transactionStatus} />}
+      {(currentStatus.toLocaleLowerCase() === "exchanging" || currentStatus.toLocaleLowerCase() === "confirming") && <ExchangingComponent depositID = {depositID} transactionStatus={transactionStatus} />}
+      {currentStatus.toLocaleLowerCase() === "sending" && <SendingComponent depositID = {depositID} transactionStatus={transactionStatus}/>}
+      {currentStatus.toLocaleLowerCase() === "finished" && <FinishComponent depositID = {depositID} transactionStatus={transactionStatus}/>} 
      {/* You can now fetch or display information based on the depositID */}
     </div>
   );
