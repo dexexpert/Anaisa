@@ -51,7 +51,7 @@ const Header = () => {
           FAQ
         </div>
         <a
-          href="https://discord.gg/x6tfdjmjkR"
+          href="https://discord.gg/uXWnRVrv"
           target="_blank"
           rel="noreferrer"
           className="bg-[#1FEA00] w-[46px] h-[46px] flex justify-center items-center p-[8px]"
@@ -87,7 +87,10 @@ const Header = () => {
             </g>
           </svg>
         </a>
-        <a href="/#">
+        <a 
+          href="https://t.me/anaisaswap"
+          target="_blank"
+          rel="noreferrer">
           <svg
             xmlns="http://www.w3.org/2000/svg"
             width="46"
@@ -189,7 +192,7 @@ const Header = () => {
 
             <div className=" flex flex-row gap-[20px]">
               <a
-                href="https://discord.gg/x6tfdjmjkR"
+                href="https://discord.gg/uXWnRVrv"
                 target="_blank"
                 rel="noreferrer"
                 className="bg-[#1FEA00] w-[33px] h-[33px] flex justify-center items-center p-[8px]"
@@ -225,7 +228,9 @@ const Header = () => {
                   </g>
                 </svg>
               </a>
-              <a href="/#">
+              <a href="https://t.me/anaisaswap"
+                target="_blank"
+                rel="noreferrer">
                 {" "}
                 <svg
                   xmlns="http://www.w3.org/2000/svg"
