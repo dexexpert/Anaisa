@@ -29,7 +29,7 @@ const FinishComponent = ({ depositID, transactionStatus }) => {
         className="flex min-h-[580px] h-full px-[12px] lg:px-[24px] py-6 lg:py-[36px] flex-col justify-center items-center gap-[42px]
         self-stretch border-[3px] lg:border-[6px] border-[#1FEA00] bg-[#00000020] shadow-custom backdrop-blur-[1.05px]] lg:w-[800px] w-[100vw]"
       >
-        <div className="flex max-w-[760px] h-full flex-col justify-between items-center self-stretch gap-[24px] text-white px-12">
+        <div className="flex max-w-[760px] h-full flex-col justify-between items-center sm:self-auto self-stretch gap-[24px] text-white px-12">
           <div className="self-start text-[#1FEA00] text-[20px] lg:text-[25px] font-semibold">
             Deposit Details
           </div>

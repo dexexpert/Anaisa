@@ -36,7 +36,7 @@ const SendingComponent = ({ depositID, transactionStatus }) => {
           <div className="text-white text-center text-[20px] font-normal leading-none flex-[1_0_0]">
             Time remaining : {transactionStatus ? transactionStatus.timestamp : ""}
           </div>
-          <div className="flex max-w-[280px] lg:max-w-[650px] px-0 py-[20px] justify-center items-center self-stretch">
+          <div className="flex max-w-[280px] lg:max-w-[650px] px-0 py-[20px] justify-center items-center self-stretch gap-[4px]">
             <div className="flex items-center gap-[21px]">
               <div className="flex flex-col justify-center items-center gap-[12px]">
                 <div className="flex w-[37px] h-[37px] p-[7px] justify-center items-center bg-[#1FEA00] rounded-[29px]">

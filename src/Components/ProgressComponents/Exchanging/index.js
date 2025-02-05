@@ -29,11 +29,11 @@ const ExchangingComponent = ({ depositID, transactionStatus }) => {
         className="flex min-h-[580px] h-full px-[12px] lg:px-[24px] py-6 lg:py-[36px] flex-col justify-center items-center gap-[42px]
         self-stretch border-[3px] lg:border-[6px] border-[#1FEA00] bg-[#00000020] shadow-custom backdrop-blur-[1.05px]]  lg:w-[800px] w-[100vw]"
       >
-        <div className="flex max-w-[760px] h-full flex-col justify-between items-center self-stretch gap-[24px] text-white px-12">
+        <div className="flex max-w-[760px] h-full flex-col justify-between items-center sm:self-auto self-stretch gap-[24px] text-white px-12">
           <div className="text-white text-center text-[20px] font-normal leading-none flex-[1_0_0]">
             Time remaining : {transactionStatus ? transactionStatus.timestamp : ""}
           </div>
-          <div className="flex max-w-[280px] lg:max-w-[650px] px-0 py-[20px] justify-center items-center self-stretch">
+          <div className="flex max-w-[280px] lg:max-w-[650px] px-0 py-[20px] justify-center items-center self-stretch gap-[4px]">
             <div className="flex items-center gap-[21px]">
               <div className="flex flex-col justify-center items-center gap-[12px]">
                 <div className="flex w-[37px] h-[37px] p-[7px] justify-center items-center bg-[#1FEA00] rounded-[29px]">
