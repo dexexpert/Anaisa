@@ -31,10 +31,10 @@ const Header = () => {
     >
       {/* Left text */}
       <a
-        className="text-center text-[#1FEA00] text-[20px] lg:text-[40px] font-normal leading-normal"
+        className="text-center text-[#1FEA00]  text-[20px] lg:text-[40px] font-normal leading-normal"
         href="/#"
       >
-        Anaisa <span className="ml-2 text-white">V1</span>
+        Anaisa <span className="ml-2 text-[#1FEA00] text-[15px] lg:text-[28px]">V1</span>
       </a>
 
       {/* Desktop Menu (Whitepaper, FAQ, Telegram, X icons) */}
