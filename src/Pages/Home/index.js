@@ -126,7 +126,7 @@ const HomePage = () => {
       >
         <div className="flex h-full flex-col justify-between items-center self-stretch gap-[10px] sm:gap-[42px] ">
           <div className="text-[#1FEA00] text-center text-[22px] lg:text-[44px] font-normal leading-none flex-[1_0_0]">
-            Exchange Crypto
+            Trade Freely, Stay Anonymous
           </div>
           <div className="flex lg:flex-row flex-col justify-center mt-3 sm:mt-0 gap-[10px] sm:gap-[42px] self-stretch">
             <div className="flex flex-col w-full ">

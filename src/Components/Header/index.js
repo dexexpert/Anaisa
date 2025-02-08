@@ -34,7 +34,7 @@ const Header = () => {
         className="text-center text-[#1FEA00] text-[20px] lg:text-[40px] font-normal leading-normal"
         href="/#"
       >
-        Anaisa
+        Anaisa <span className="ml-2 text-white">V1</span>
       </a>
 
       {/* Desktop Menu (Whitepaper, FAQ, Telegram, X icons) */}
